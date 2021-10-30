@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>squares</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .container{
+            background-color: #00ffff;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+        }
+        .square {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            margin-right: 2px;
+        }
+        p {
+            position: fixed;
+    left: 45%;
+    font-size: 3rem;
+    top: 50%;
+    font-weight: 700;
+    font-family: system-ui;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="square" id="first-square">
+        </div>
+        <p>click Me</p>
+        
+    </div>
+
+    <script>
+        window.onload = function(){
+    
+        const colors = ["red", "green", "yellow", 
+        "pink", "purple", "crimson", 
+        "coral", "blue", "orange", 
+        "lime", "darkkhaki", "black",
+        "darkorange", "darkslateblue", "darkslategray"]
+        let indexOfSquares = 0;
+        const firstSquare = document.querySelector("#first-square");
+        var squares = document.querySelectorAll(".square");
+
+        function createSquareItem() {
+            const square = document.createElement('div');7
+            square.classList.add("square");
+            square.id = indexOfSquares;
+            const colorIndex = Math.floor(Math.random() * colors.length);
+            console.log(colorIndex)
+            square.style.backgroundColor = colors[colorIndex];
+            square.style.width = `100px`;
+            square.style.height = `100px`;
+            return square;
+        }
+
+       firstSquare.addEventListener("click", () => { 
+            firstSquare.appendChild(createSquareItem());
+            
+            indexOfSquares++;
+        })
+    }
+    </script>
+</body>
+</html>
